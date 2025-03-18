@@ -13,3 +13,11 @@ def ch_now(rounding='s'):
     ts = pd.Timestamp(current_time.replace(tzinfo=None))
     
     return ts.floor(rounding) if rounding else ts
+
+
+categories = {
+    "Länge": ["Meter", "Füsse", "Kilometer", "Meilen"],
+    "Volumen": ["Liter", "Gallonen", "Milliliter", "Unzen"],
+    "Gewicht": ["Kilogramm", "Pfund", "Gramm", "Unzen"],
+    "Temperatur": ["Celsius", "Fahrenheit"]
+}
