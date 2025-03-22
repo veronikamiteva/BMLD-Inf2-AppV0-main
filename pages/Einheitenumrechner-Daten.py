@@ -9,10 +9,10 @@ LoginManager().go_to_login('Start.py')
 import pandas as pd
 import streamlit as st
 
-st.title('BMI Werte')
+st.title('Einheitenumrechnungswerte')
 
 if 'data_df' not in st.session_state or st.session_state['data_df'].empty:
-    st.info('Keine BMI Daten vorhanden. Berechnen Sie Ihren BMI auf der Startseite.')
+    st.info('Keine Einheitenumrechnungsdaten vorhanden. Führen Sie eine Umrechnung auf der Startseite durch')
     st.stop()
 else:
     data_df = st.session_state['data_df']

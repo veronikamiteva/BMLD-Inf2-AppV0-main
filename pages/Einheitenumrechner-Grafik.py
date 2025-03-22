@@ -8,11 +8,11 @@ LoginManager().go_to_login('Start.py')
 
 import streamlit as st
 
-st.title('BMI Verlauf')
+st.title('Einheitenumrechnungsverlauf')
 
 data_df = st.session_state['data_df']
 if data_df.empty:
-    st.info('Keine BMI Daten vorhanden. Berechnen Sie Ihren BMI auf der Startseite.')
+    st.info('Keine Einheitenumrechnungsdaten vorhanden. Führen Sie eine Umrechnung auf der Startseite durch.')
     st.stop()
 
 # Data by category
