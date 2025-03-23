@@ -10,17 +10,12 @@ import streamlit as st
 from utils import helpers
 from utils.data_manager import DataManager
 from functions.convert_units import convert_units
-# from functions.unit_converter_form import unit_converter_form
-# from functions.reset_units import reset_units
+from functions.unit_converter_form import unit_converter_form
+from functions.reset_units import reset_units
 
 st.title('📏 Einheitenumrechner (US ↔ EU Masseinheiten)')
 st.markdown('Länge, Volumen, Gewicht und Temperatur ganz einfach umrechnen')
 
-def unit_converter_form():
-    with st.form(key='unit_converter'):
-        value = st.number_input('Wert eingeben', min_value=0.0, format='%.2f')
-        submit_button = st.form_submit_button(label='Umrechnen')
-        return value, submit_button
 
 # Initialize session state variables
 if 'category' not in st.session_state:
@@ -30,10 +25,6 @@ if 'from_unit' not in st.session_state:
 if 'to_unit' not in st.session_state:
     st.session_state.to_unit = helpers.categories[st.session_state.category][1]
 
-# Function to reset unit selections when category changes
-def reset_units():
-    st.session_state.from_unit = helpers.categories[st.session_state.category][0]
-    st.session_state.to_unit = helpers.categories[st.session_state.category][1]
 
 # Move category selection outside the form
 category = st.selectbox('Kategorie auswählen', list(helpers.categories.keys()), key='category', on_change=reset_units)
