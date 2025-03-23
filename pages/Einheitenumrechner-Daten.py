@@ -11,11 +11,10 @@ import streamlit as st
 
 st.title('Einheitenumrechnungswerte')
 
-if 'data_df' not in st.session_state or st.session_state['data_df'].empty:
+data_df = st.session_state['data_df']
+if data_df.empty:
     st.info('Keine Einheitenumrechnungsdaten vorhanden. Führen Sie eine Umrechnung auf der Startseite durch')
     st.stop()
-else:
-    data_df = st.session_state['data_df']
 
 # Ensure 'timestamp' column is in datetime format
 data_df['timestamp'] = pd.to_datetime(data_df['timestamp'], errors='coerce')
